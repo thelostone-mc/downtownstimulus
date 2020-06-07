@@ -11,7 +11,7 @@ jobs:
   build:	
     runs-on: ubuntu-latest	    
     steps:
-    - run: docker build --tag my-image:v1 .
+    - run: docker-compose build
     - name: Push to ECR
       id: ecr
       uses: jwalton/gh-ecr-push@v1
@@ -19,5 +19,4 @@ jobs:
         access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: us-east-1
-        image: my-image:v1
   
